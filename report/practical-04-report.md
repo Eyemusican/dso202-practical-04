@@ -58,7 +58,7 @@ I scaled the Deployment to 1 replica with `kubectl`, which made the cluster diff
 
 I deleted `service.yaml` with `git rm` and pushed commit `e5faf14`. Argo CD removed `webapp-svc` from the cluster, because `prune` is enabled.
 
-![Service removed from Git](../evidence/practical4-17-git-remove-service.png)
+![Service removed from Git (commit e5faf14, captured after the revert)](../evidence/practical4-17-git-remove-service.png)
 ![Service gone from the cluster](../evidence/practical4-18-prune-terminal.png)
 ![Service gone from the tree](../evidence/practical4-19-prune-argocd.png)
 
@@ -68,7 +68,7 @@ Then I ran `git revert HEAD`, which made a new commit `39428c5` that adds `servi
 ![Service back in the cluster](../evidence/practical4-21-revert-service-back-terminal.png)
 ![Service back in the tree](../evidence/practical4-22-revert-service-back-argocd.png)
 
-The sync history lists every change with its commit, author and message, and every one was started by the automated sync policy.
+The sync history lists each Git change after the first deploy with its commit, author and message, and every one was started by the automated sync policy.
 
 ![Sync history](../evidence/practical4-23-argocd-sync-history.png)
 
